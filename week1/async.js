@@ -43,25 +43,63 @@ const fs = require("fs");
 
   //examples
 
-function readTheFile(){
-    console.log("inside readTheFile");
-    
-    return new Promise(function(resolve, reject){
-        console.log("inside Promise");
+// function readTheFile(){
+//     console.log("inside readTheFile");
+//     // return promise
+//     return new Promise(function(resolve, reject){
+//         console.log("inside Promise");
         
-        fs.readFile("a.txt","utf-8", function(err,data){
-            console.log("before resolve promise");
+//         fs.readFile("a.txt","utf-8", function(err,data){
+//             console.log("before resolve promise");
             
-            resolve(data);
-            console.log("after resolve promise");
+//             resolve(data);
+//             console.log("after resolve promise");
             
-        })
-    })
+//         })
+//     })
+// }
+
+// function onDone(data){
+//     console.log(data);
+// }
+
+// let a= readTheFile();
+// a.then(onDone);
+
+
+//
+// var p= new Promise(function(resolve){
+   
+//    setTimeout(function(){
+//      resolve("ha ha ha");
+//    },2000)
+// })
+
+// function onDone(){
+//     console.log(p);
+    
+// };
+
+// p.then(onDone);
+
+
+//async await
+
+function newFunction(){
+    let p= new Promise(function(resolve){
+
+        setTimeout(function(){
+            resolve("hi there");
+        },2000)
+        
+    });
+    return p;
 }
 
-function onDone(data){
-    console.log(data);
+async function main(){
+    let value = await newFunction();
+    console.log(value);
+    
 }
 
-let a= readTheFile();
-a.then(onDone);
+main();
