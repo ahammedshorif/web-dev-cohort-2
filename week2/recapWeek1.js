@@ -50,7 +50,7 @@
 
             reslove("resolve done");
             
-        })
+        },5000)
     })
  };
  
