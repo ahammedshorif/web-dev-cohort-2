@@ -8,7 +8,11 @@ const app = express();
 
 
 app.get('/', (req, res) => {
-    res.send("hello worldc !!")
+    console.log(req.headers);
+    let age = req.query.age;
+    console.log(`age = ${age}`)
+    
+    res.send(`hello man Your age is ${age}`)
 })
 
 app.get('/route', (req, res) => {
