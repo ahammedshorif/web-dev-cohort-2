@@ -2,8 +2,34 @@
 
 
 const express = require('express');
+var bodyParser = require('body-parser')
 
 const app = express();
+
+app.use(express.json())
+app.use(bodyParser.json())
+
+
+const users = [{
+    name: "shorif",
+    age: 24,
+    metadata: {
+        profilePicture: "none",
+        pronouns: "he/him",
+        address: "cumilla"
+    }
+},
+ {
+    name: "Ovi",
+    age: 24,
+    metadata: {
+        profilePicture: "none",
+        pronouns: "he/him",
+        address: "ctg"
+    }
+}
+
+]
 
 
 
@@ -20,6 +46,26 @@ app.get('/route', (req, res) => {
         name: "shoirf",
         age: 24
      })
+})
+
+app.get('/user', (req, res) => {
+    let uname = [];
+    for(let i=0;i<users.length;i++){
+        let userAddress= users[i].metadata.address;
+        console.log(userAddress);
+        
+         uname.push(userAddress);
+    }
+    res.send(uname);
+})
+
+app.post('/post', (req, res) => {
+    console.log(req.body);
+    const ageb = req.body.age;
+    res.json({
+        mag: "done"
+    })
+    
 })
 
 
