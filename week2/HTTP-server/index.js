@@ -59,13 +59,19 @@ app.get('/user', (req, res) => {
     res.send(uname);
 })
 
-app.post('/post', (req, res) => {
+app.post('/', (req, res) => {
     console.log(req.body);
     const ageb = req.body.age;
     res.json({
         mag: "done"
     })
     
+})
+
+app.delete('/', (req, res) => {
+     res.status(404).json({
+        mag: "page not found"
+     })
 })
 
 
