@@ -5,6 +5,7 @@ app.use(express.json());
 
 const route = require("./routes/route")
 
+// mount the router on the app
 app.use("/api",route)
 
 

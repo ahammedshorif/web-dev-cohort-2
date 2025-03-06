@@ -8,9 +8,10 @@ const auth = function(req, res, next) {
     console.log("inside auth middleware");
 
     req.user= {
-        userId:1,
-        role: "student"
+        userId:req.headers.id,
+        role: req.headers.role,
     }
+    
 
     if(req.user){
         next();
