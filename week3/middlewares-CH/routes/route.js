@@ -61,7 +61,7 @@ const isAdmin = function(req,res,next){
 router.get("/student", auth,isStudent,(req,res) =>{
     console.log("I'm inside the student route");
 
-    res.send(" student Page")
+    res.send("<h1>Student page</h1>")
     
 })
 
