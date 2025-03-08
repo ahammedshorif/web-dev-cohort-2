@@ -58,6 +58,16 @@ app.post("/health-checkup", (req,res)=>{
     res.send("Your kidney length is " + kidneyLength )
 })
 
+
+// global catches
+//Error-Handling middelware
+
+app.use((err,req,res,next)=>{
+    res.json({
+        mag: "sorry something is up with our server"
+    })
+})
+
 app.listen(3000, ()=>{
     console.log("listening on port 3000");
 })
