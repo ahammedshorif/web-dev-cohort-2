@@ -27,7 +27,12 @@ const Users = [
 ]
 
 function userExists(userName,password){
-
+    for(let i=0;i<Users.length;i++){
+        if(Users[i].username == userName && Users[i].password == password){
+            return true;
+        }
+    }
+    return false;
 }
 
 
@@ -40,24 +45,28 @@ app.post('/signin',(req,res)=>{
             msg: "user dosent exist in our in memory db",
         })
     }
-    var token = jwt.sign({username: username},"shhhh");
+    var token = jwt.sign({username: username},jwtPassword);
     return res.json({
         token,
     })
 });
 
 app.get("/users", (req,res)=>{
-    const token = req.header.authorization;
-    try{
+    const token = req.headers.authorization;
         const decoded =jwt.verify(token,jwtPassword);
         const username = decoded.username;
 
-    } catch(err){
-        return res.status(403).json({
-            mag: "Invalid token",
+        res.json({
+            users: Users.filter((value)=>{
+                if(value.username == username){
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            })
         })
 
-    }
 })
 
 app.listen(3000,()=>{
