@@ -7,7 +7,7 @@
     <body>
         <input id="input1" placeholder="Number 1" type="number"><br/><br/>
         <input id="input2" placeholder="Number 1" type="number"><br/><br/>
-        <button onclick="sum()">Cal</button>
+        <button onclick="debounceSum()">Cal</button>
 
         <h3 id="result"></h3>
     </body>
@@ -16,6 +16,18 @@
         let input1= document.getElementById("input1");
         let input2 = document.getElementById("input2");
         const result = document.getElementById("result");
+
+        //Debounce function
+        //Debounce function work : Debounce makes sure a function runs only after a pause in activity. If the function is called again before the wait time is over, the timer resets. This helps avoid running the function too many times too quickly.
+        
+        let timer;
+        function debounceSum(){
+            //cancel the clock if request come 500 ms
+            clearTimeout(timer);
+            setTimeout(()=>{
+                sum();
+            },1000)
+        }
 
 
         function sum(){
@@ -26,3 +38,8 @@
 
     </script>
 </html>
+
+
+<!-- // new topic
+1. debounce
+2. fetch data backend to frontend -->
