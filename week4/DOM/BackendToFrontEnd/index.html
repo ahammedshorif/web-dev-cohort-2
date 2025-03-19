@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <input id="input1" placeholder="Number 1" type="number"><br/><br/>
+        <input id="input2" placeholder="Number 1" type="number"><br/><br/>
+        <button onclick="sum()">Calculate</button>
+
+        <h3 id="result">Sum = </h3> 
+    </body>
+
+    <script>
+        let input1= document.getElementById("input1");
+        let input2 = document.getElementById("input2");
+        const result = document.getElementById("result");
+        
+        async function sum(){
+           
+            let number1= input1.value;
+            let number2 = input2.value;
+
+            //fetch data from backend http server
+
+            let response = await fetch(`http://localhost:3000/sum?num1=${number1}&num2=${number2}`)
+            let sumNum = await response.json();
+            console.log(sumNum);
+            
+            result.textContent = "Sum = " + sumNum;
+
+        }
+        
+
+    </script>
+</html>
+
+
+<!-- // new topic
+1. debounce
+2. fetch data backend to frontend -->
