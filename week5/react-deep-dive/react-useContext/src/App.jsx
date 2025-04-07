@@ -8,7 +8,7 @@ const userContext = createContext(); //step1: context create
 // step3: pass value
 function App() {
 
-cosnt [user,setUser]= useState({name:"Shorif"})
+const [user,setUser]= useState({name:"Shorif"})
 
   return (
 

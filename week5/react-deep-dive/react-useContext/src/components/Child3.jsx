@@ -1,15 +1,16 @@
-import React, {useContext} from 'react'
-import { userContext } from '../App'
+import React, { useContext } from "react";
+import { userContext } from "../App";
 
 function Child3() {
-  const user = useContext(userContext)
+  const user = useContext(userContext);
   return (
     <div>
-    Child3
-    {user.name}
-    {console.log("child 3")}
+      <h2>Child3</h2> <br />
+      <br />
+      {user.name}
+      {console.log("child 3")}
     </div>
-  )
+  );
 }
 
-export default Child3
+export default Child3;
