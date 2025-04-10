@@ -1,27 +1,49 @@
 const express = require("express");
 const { createTode, updateTodo } = require("./types");
+const { todo } = require("./db")
+const mongoose = require("mongoose");
 const app = express()
 
 app.use(express.json())
 
-app.post("/todo", (req,res)=>{
+app.post("/todo", async (req,res)=>{
     const createPayload = req.body;
     const parsedPayload = createTode.safeParse(createPayload)
 
     if(!parsedPayload.success){
         res.status(403).json({
-            mag: "You send wrong inputs"
+            msg: "You send wrong inputs"
         })
         return;
     }
     //put it mongoDB
 
-})
-app.get("/todos",  (req,res)=>{
+    await todo.create({
+        title: createPayload.title,
+        description: createPayload.description,
+        completed: false,
+    })
+
+    res.json({
+        msg: "todo is cteated ☺"
+    })
 
 })
 
-app.put("/completed", (req,res)=>{
+
+app.get("/todos", async (req,res)=>{
+    const todos = await todo.find({});
+    console.log(todos);
+
+    res.json({
+        todos
+    })
+    
+})
+
+
+
+app.put("/completed", async (req,res)=>{
     const updatePayload = req.body;
     const parsedPayload= updateTodo.safeParse(updatePayload)
 
@@ -31,6 +53,17 @@ app.put("/completed", (req,res)=>{
         })
         return;
     }
+    const id = new mongoose.Types.ObjectId(req.body.id);
+    await todo.updateOne({
+        _id : id ,
+    },{
+        completed: true,
+    })
+
+    res.json({
+        msg: "todo mark as completed"
+    })
+
 })
 
 app.listen(3000,()=>{

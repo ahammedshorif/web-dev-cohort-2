@@ -9,10 +9,10 @@ todo {
 
 const mongoose = require("mongoose")
 //.env
-mongoose.connect("mongodb://localhost:27017/Todos")
+mongoose.connect("mongodb://localhost:27017/todosDb")
 
 
-const todoSchema = mongoose.schema({
+const todoSchema = mongoose.Schema({
     title: String,
     description: String,
     completed: Boolean,
