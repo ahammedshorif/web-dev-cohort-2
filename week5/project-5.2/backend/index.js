@@ -60,7 +60,7 @@ app.put("/completed", async (req,res)=>{
         _id : id ,
     },{
         completed: true,
-    })
+      })
 
     res.json({
         msg: "todo mark as completed"

@@ -6,7 +6,7 @@ import Todos from './components/Todos'
 function App() {
   const [todos,setTodos] = useState([]);
 
-  /* This worng way because its render infiniy time */
+  /* ***This worng way because its render infiniy time*** */
 
   // async function fetchTodos(){
   //    let result= await fetch("http://localhost:3000/todos")
@@ -16,6 +16,9 @@ function App() {
   //    setTodos(todo.todos)
   // }
   // fetchTodos()
+
+
+  /* ***This right way*** */
 
   useEffect(() => {
     async function fetchTodos() {
