@@ -31,8 +31,11 @@ function App() {
 
 
   return (
-    <div>
-       <CreateTodo> </CreateTodo>
+    <div >
+      <div className='sticky top-0'>
+        <CreateTodo> </CreateTodo>
+      </div>
+       
        <Todos todos={todos}> </Todos>
      </div>
   )

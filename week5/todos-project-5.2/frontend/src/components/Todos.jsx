@@ -20,9 +20,9 @@ function Todos({ todos }) {
     <div className="bg-blue-400 p-2 m-4">
       {todos.map(function (todo) {
         return (
-          <div className="bg-blue-700 p-2 m-4">
+          <div className="bg-stone-500 p-2 m-4 rounded-lg">
             <h1 className="text-xl font-bold">Title: {todo.title}</h1>
-            <h2 className="text-lg py-2">Des: {todo.description}</h2>
+            <h2 className="text-lg py-2 text-white">Description: {todo.description}</h2>
             <button
               className="bg-orange-400 p-1 rounded-xl font-bold"
               onClick={() => {markTodoCompleted(todo)}}

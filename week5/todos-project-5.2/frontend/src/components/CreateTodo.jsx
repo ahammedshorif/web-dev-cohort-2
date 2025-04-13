@@ -2,7 +2,7 @@ import React from "react";
 
 function CreateTodo() {
   return (
-    <div className="flex flex-col justify-center w-[30%] bg-green-300">
+    <div className="flex flex-col justify-center w-auto mx-4 bg-blue-400">
       <input
         type="text"
         name=""
