@@ -27,15 +27,21 @@ function App() {
 
   return (
     <>
-      <AddTodo></AddTodo>
-      <Todos > </Todos>
+      {/* <AddTodo></AddTodo>
+      <Todos > </Todos> */}
+      <CardWrapper>
+        <AddTodo></AddTodo>
+      </CardWrapper>
+      <CardWrapper>
+        <Todos > </Todos>
+      </CardWrapper>
     </>
   )
 
   function Todos(){
-    return <div>
+    return <div className=''>
        {todos.map((todo)=>{
-        return <div>
+        return <div className='bg-red-300 m-2'>
          <h1>{todo.title}</h1>
          <h3>{todo.description}</h3>
          </div>
@@ -46,6 +52,12 @@ function App() {
   function AddTodo(){
     return <div>
       <button onClick={addTodo}>Add todo</button>
+    </div>
+  }
+
+  function CardWrapper({children}){
+    return <div className="bg-blue-500 my-2">
+          {children}
     </div>
   }
 }
