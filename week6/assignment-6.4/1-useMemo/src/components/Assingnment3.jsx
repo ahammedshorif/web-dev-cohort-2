@@ -14,7 +14,7 @@ function Assingnment3() {
             total+=items[i].value;
         }
         return total;
-    },[])
+    },[items])
   return (
     <div>
         <ul>
