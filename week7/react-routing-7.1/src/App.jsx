@@ -3,6 +3,7 @@ import {BrowserRouter,Routes,Route, useNavigate} from "react-router-dom"
 import './App.css'
 import Home from "./components/Home"
 import About from "./components/About"
+import Landing from "./components/Landing"
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
       <BrowserRouter>
            <Topbar></Topbar>
           <Routes>
-             <Route path='/' element={<div>This is / page</div>} />
+             <Route path='/' element={<Landing></Landing>} />
              <Route path='/home' element={<Home></Home>} />
              <Route path='/about' element={<About></About>} />
           </Routes>

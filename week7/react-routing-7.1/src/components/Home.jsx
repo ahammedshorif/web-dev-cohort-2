@@ -3,7 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div>
+    <div style={{backgroundColor: "blue", height: "100vh"}}>
         Home
     </div>
   )
