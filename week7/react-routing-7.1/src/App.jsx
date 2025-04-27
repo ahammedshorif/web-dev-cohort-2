@@ -1,9 +1,12 @@
 
-import {BrowserRouter,Routes,Route, useNavigate} from "react-router-dom"
+import {BrowserRouter,Routes,Route, useNavigate,Link} from "react-router-dom"
+import React, {Suspense} from "react"
 import './App.css'
 import Home from "./components/Home"
 import About from "./components/About"
-import Landing from "./components/Landing"
+// import Landing from "./components/Landing"
+
+const Landing = React.lazy(()=> import("./components/Landing"))
 
 function App() {
   return (
@@ -24,12 +27,14 @@ function App() {
 
       </div>
       <BrowserRouter>
-           <Topbar></Topbar>
+      <Suspense fallback={<div>Loading...</div>}>
+      <Topbar></Topbar>
           <Routes>
              <Route path='/' element={<Landing></Landing>} />
              <Route path='/home' element={<Home></Home>} />
              <Route path='/about' element={<About></About>} />
           </Routes>
+      </Suspense>
       </BrowserRouter>
     </div>
     
@@ -51,6 +56,7 @@ function Topbar(){
           <button onClick={()=>{
             navigate("/about")
           }}>About</button>
+          <Link to="/about">about</Link>
   </div>
 }
 
