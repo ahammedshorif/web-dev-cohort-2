@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import './App.css'
+import Wrapper from "./components/Wrapper";
+import {RecoilRoot} from "recoil"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div>
-      hi 
+      <RecoilRoot>
+        <Wrapper></Wrapper>
+      </RecoilRoot>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
