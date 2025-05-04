@@ -1,6 +1,6 @@
 import { RecoilRoot } from "recoil";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { countAtom } from "./store/count";
+import { countAtom, evenSelector } from "./store/count";
 
 function App() {
   return (
@@ -23,7 +23,14 @@ function Wrapper() {
 
 function CountRender() {
   const count = useRecoilValue(countAtom);
-  return <h1>count: {count}</h1>;
+  const even = useRecoilValue(evenSelector)
+  return <div>
+    <h1>count: {count}</h1>;
+    <h3>{even==0 ? "even count" : "odd count"}</h3>
+  </div>
+  
+
+
 }
 
 function Buttons() {
