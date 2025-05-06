@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   networkAtom,
   notificationAtom,
@@ -14,6 +14,22 @@ function Nav() {
   const [jobsCount, setJobsCount] = useRecoilState(jobsAtom);
   const [messageCount, setMessageCount] = useRecoilState(messagekAtom);
   const totalNotification = useRecoilValue(totalNotificationCount);
+
+  async function fetchData() {
+    setInterval(async () => {
+      const response = await fetch("http://localhost:8080/notifications");
+      const data = await response.json();
+      setNetworkCount(data.network);
+      setNotificationCount(data.notifications);
+      setJobsCount(data.jobs);
+      setMessageCount(data.messaging);
+    }, 10000);
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div
       style={{
@@ -24,9 +40,7 @@ function Nav() {
       }}
     >
       <button>Home</button>
-      <button onClick={() => {
-          setNetworkCount(networkCount + 1);
-        }}>
+      <button>
         My networks
         <sup
           style={{
@@ -39,11 +53,7 @@ function Nav() {
           {networkCount > 100 ? "100+" : networkCount}
         </sup>
       </button>
-      <button
-        onClick={() => {
-          setNotificationCount(notificationCount + 1);
-        }}
-      >
+      <button>
         Notification
         <sup
           style={{
@@ -56,11 +66,7 @@ function Nav() {
           {notificationCount > 100 ? "100+" : notificationCount}
         </sup>
       </button>
-      <button
-        onClick={() => {
-          setJobsCount(jobsCount + 1);
-        }}
-      >
+      <button>
         Jobs
         <sup
           style={{
@@ -73,11 +79,7 @@ function Nav() {
           {jobsCount > 100 ? "100+" : jobsCount}
         </sup>
       </button>
-      <button
-        onClick={() => {
-          setMessageCount(messageCount + 1);
-        }}
-      >
+      <button>
         Message
         <sup
           style={{
