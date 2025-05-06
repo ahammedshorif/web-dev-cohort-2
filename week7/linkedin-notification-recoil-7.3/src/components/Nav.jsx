@@ -25,10 +25,12 @@ function Nav() {
             padding: "1px",
           }}
         >
-          {networkCount}
+          {networkCount> 100 ? "100+" : networkCount}
         </sup>
       </button>
-      <button>
+      <button  onClick={()=>{
+            setNotificationCount(notificationCount + 1)
+          }}>
         Notification
         <sup
           style={{
@@ -41,7 +43,9 @@ function Nav() {
           {notificationCount>100 ? "100+" : notificationCount}
         </sup>
       </button>
-      <button>
+      <button  onClick={()=>{
+            setJobsCount(jobsCount + 1)
+          }}>
         Jobs
         <sup
           style={{
@@ -51,10 +55,12 @@ function Nav() {
             padding: "1px",
           }}
         >
-          {jobsCount}
+          {jobsCount>100 ? "100+" : jobsCount}
         </sup>
       </button>
-      <button>
+      <button  onClick={()=>{
+            setMessageCount(messageCount + 1)
+          }}>
         Message
         <sup
           style={{
@@ -64,7 +70,7 @@ function Nav() {
             padding: "1px",
           }}
         >
-          {messageCount}
+          {messageCount>100 ? "100+" : messageCount}
         </sup>
       </button>
     </div>
