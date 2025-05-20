@@ -26,4 +26,5 @@ function runAfter1S(fn: ()=> void){
 
 runAfter1S(function(){
     console.log("hello");
+    console.log("hello ubutu")
 })
