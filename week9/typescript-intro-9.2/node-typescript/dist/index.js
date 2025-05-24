@@ -1,7 +1,6 @@
 "use strict";
 let a = 10;
 console.log(a);
-//interfaces
 function isLegal(user) {
     if (user.age > 18) {
         return true;
@@ -10,8 +9,12 @@ function isLegal(user) {
         return false;
     }
 }
-isLegal({
-    firstName: "Ahammed",
-    lastName: "Shoirf",
-    age: 24,
-});
+class Employee {
+    constructor(n, a) {
+        this.name = n;
+        this.age = a;
+    }
+    greet(phrase) {
+        console.log(`${phrase} ${this.name}`);
+    }
+}
