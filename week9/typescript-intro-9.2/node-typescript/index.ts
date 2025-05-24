@@ -68,3 +68,6 @@ class Employee implements Person{
         console.log(`${phrase} ${this.name}`)
     }
 }
+
+const employee1= new Employee("shorif", 24);
+console.log(employee1.name)
