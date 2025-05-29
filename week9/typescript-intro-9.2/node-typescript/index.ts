@@ -71,3 +71,13 @@ class Employee implements Person{
 
 const employee1= new Employee("shorif", 24);
 console.log(employee1.name)
+
+
+// Type
+//almost same as interface 
+
+type Users = {
+    fistname:string;
+    lastname:string;
+    age:number;
+}
