@@ -17,7 +17,7 @@ doSomething("right")
 
 
 //enums
-// its default set Up=1,Down=2,Left=3,Right=4
+// its default set Up=0,Down=1,Left=2,Right=2
 
 // enum Direction {
 //     Up, 
@@ -47,3 +47,27 @@ function doSomething1(keyPressed: Direction){
 
 doSomething1(Direction.Up)
 doSomething1(Direction.Right)
+
+
+
+//********* */
+//this problem is solve with Generics
+
+type Input = number | string;
+
+function firstEl(arr: Input[]){
+    return arr[0];
+}
+
+const value= firstEl(["shorif","hello",4])
+// console.log(value.toUppercase()); //its not access default method of string or number 
+//value type is : Input
+
+// Generics
+
+function identity<T>(arg: T): T{
+    return arg;
+}
+
+let output1= identity<string>("shorif") // output1 type: string
+let output2 = identity<number>(300)    //output2 type: number
