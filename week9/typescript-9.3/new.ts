@@ -71,3 +71,18 @@ function identity<T>(arg: T): T{
 
 let output1= identity<string>("shorif") // output1 type: string
 let output2 = identity<number>(300)    //output2 type: number
+
+console.log(output1,output2);
+
+
+
+//now problem are solve
+
+function getFirstEl<T>(arr: T[]): T{
+    return arr[0];
+}
+
+const el= getFirstEl<string>(["shorif", "hello"])
+const el2= getFirstEl<number>([29,49,78])
+console.log(el.toUpperCase());
+
