@@ -17,12 +17,22 @@ doSomething("right")
 
 
 //enums
+// its default set Up=1,Down=2,Left=3,Right=4
 
+// enum Direction {
+//     Up, 
+//     Down,
+//     Left,
+//     Right
+// }
+
+
+//also we can
 enum Direction {
-    Up,
-    Down,
-    Left,
-    Right
+    Up = "up",
+    Down = "down",
+    Left = "left",
+    Right = "right"
 }
 
 function doSomething1(keyPressed: Direction){
