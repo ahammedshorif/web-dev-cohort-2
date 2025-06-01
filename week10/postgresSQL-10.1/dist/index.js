@@ -9,6 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const { Client } = require("pg");
+const dotenv = require("dotenv");
+dotenv.config();
 const client = new Client({
     // for local connection
     // host: "",
@@ -17,7 +19,7 @@ const client = new Client({
     // user: "",
     // password: "",
     // for neno connection
-    connectionString: "postgresql://neondb_owner:npg_ZvUDfxL73cJy@ep-crimson-sound-a87hggrl-pooler.eastus2.azure.neon.tech/neondb?sslmode=require",
+    connectionString: process.env.DATABASE_URL,
     ssl: {
         rejectUnauthorized: false,
     },
@@ -64,4 +66,15 @@ VALUES ('harvey_specter', 'harvey@example.com', 'suitup007');
         console.log(insertTable);
     });
 }
-insertUserTable();
+// insertUserTable()
+function findData() {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield client.connect();
+        const data = yield client.query(`
+                SELECT * FROM users;
+        
+        `);
+        console.log(data);
+    });
+}
+findData();

@@ -70,6 +70,21 @@ VALUES ('harvey_specter', 'harvey@example.com', 'suitup007');
   console.log(insertTable);
 }
 
-insertUserTable()
+// insertUserTable()
 
+async function findData() {
+    await client.connect();
+
+    const data= await client.query(`
+                SELECT * FROM users;
+        
+        `);
+
+        console.log(data);
+        
+
+}
+
+findData()
+    
 
