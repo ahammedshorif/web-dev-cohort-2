@@ -3,6 +3,8 @@ const dotenv =require("dotenv")
 
 dotenv.config();
 
+
+
 const client = new Client({
   // for local connection
   // host: "",
@@ -20,6 +22,11 @@ const client = new Client({
     rejectUnauthorized: false,
   },
 });
+
+async function clientConnect(){
+   await client.connect();
+}
+clientConnect();
 
 
 
@@ -91,6 +98,18 @@ async function findData() {
 
 }
 
-findData()
+// findData()
+
+async function updateRecord(){
+    const updateData = await client.query(`
+       
+        UPDATE users SET username= 'shorif', email=' xyz@gmail.com', password= '12345678' WHERE id=4;
+        
+    `);
+    console.log(updateData);
+    
+}
+
+updateRecord();
     
 

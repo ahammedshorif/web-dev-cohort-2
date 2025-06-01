@@ -24,6 +24,12 @@ const client = new Client({
         rejectUnauthorized: false,
     },
 });
+function clientConnect() {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield client.connect();
+    });
+}
+clientConnect();
 function createUserTable() {
     return __awaiter(this, void 0, void 0, function* () {
         yield client.connect();
@@ -81,4 +87,15 @@ function findData() {
         console.log(oneUserData);
     });
 }
-findData();
+// findData()
+function updateRecord() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const updateData = yield client.query(`
+       
+        UPDATE users SET username= 'shorif', email=' xyz@gmail.com', password= '12345678' WHERE id=4;
+        
+    `);
+        console.log(updateData);
+    });
+}
+updateRecord();
