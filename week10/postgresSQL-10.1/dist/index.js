@@ -70,11 +70,15 @@ VALUES ('harvey_specter', 'harvey@example.com', 'suitup007');
 function findData() {
     return __awaiter(this, void 0, void 0, function* () {
         yield client.connect();
-        const data = yield client.query(`
+        const allUserData = yield client.query(`
                 SELECT * FROM users;
         
         `);
-        console.log(data);
+        const oneUserData = yield client.query(`
+                SELECT * FROM users WHERE id=3;
+        
+        `);
+        console.log(oneUserData);
     });
 }
 findData();

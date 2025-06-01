@@ -75,12 +75,18 @@ VALUES ('harvey_specter', 'harvey@example.com', 'suitup007');
 async function findData() {
     await client.connect();
 
-    const data= await client.query(`
+    const allUserData= await client.query(`
                 SELECT * FROM users;
         
         `);
+    
+    const oneUserData= await client.query(`
+                SELECT * FROM users WHERE id=3;
+        
+        `);
+    
 
-        console.log(data);
+        console.log(oneUserData);
         
 
 }
