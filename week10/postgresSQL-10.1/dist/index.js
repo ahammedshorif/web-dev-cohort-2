@@ -88,14 +88,48 @@ function findData() {
     });
 }
 // findData()
+// async function updateRecord(){
+//     const updateData = await client.query(`
+//         UPDATE users SET username= 'shorif', email='xyz@gmail.com', password= '12345678' WHERE id=4;
+//     `);
+//     console.log(updateData);
+// }
+// updateRecord() 
+//above way is not Rigth because of SQL injection ***********************
+function insertUserTableW() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const users = [
+                ['alice_wonder', 'alice@wonderland.com', 'teaTime987'],
+                ['bob_builder', 'bob@construction.com', 'canWeFixIt123'],
+                ['clara_oswald', 'clara@tardis.net', 'impossibleGirl456'],
+                ['derek_shepherd', 'derek@seattlegrace.com', 'neurosurgeon321'],
+                ['elsa_ice', 'elsa@arendelle.org', 'letItGo007']
+            ];
+            for (const user of users) {
+                const insertQuery = `
+                INSERT INTO users (username, email, password)
+                VALUES ($1, $2, $3)
+            `;
+                yield client.query(insertQuery, user);
+            }
+            console.log('All users inserted successfully.');
+        }
+        catch (error) {
+            console.error('Error inserting users:', error);
+        }
+        finally {
+            yield client.end();
+        }
+    });
+}
+insertUserTableW();
 function updateRecord() {
     return __awaiter(this, void 0, void 0, function* () {
-        const updateData = yield client.query(`
-       
-        UPDATE users SET username= 'shorif', email=' xyz@gmail.com', password= '12345678' WHERE id=4;
-        
-    `);
+        const updateQuery = `UPDATE users SET username= $1, email=$2, password= $3 WHERE id=$4;`;
+        const value = ["ahamemd", "23@gmail.com", "45893948", "4"];
+        const updateData = yield client.query(updateQuery, value);
         console.log(updateData);
     });
 }
-updateRecord();
+// updateRecord() 
