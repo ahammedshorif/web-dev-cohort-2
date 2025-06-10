@@ -20,5 +20,23 @@ async function insertUser(firstName:string,lastName:string,email:string,password
     
 }
 
-insertUser("ah","shorif","shorif10@gmail.com","4839580")
+// insertUser("ah","shorif","shorif10@gmail.com","4839580")
+
+
+async function updateUser(email:string,{firstName,lastName}:any){
+    const res= await prisma.user.update({
+        where: {email:email},
+        data:{
+            firstName,
+            lastName,
+        },
+        select:{
+            id:true,
+        }
+    })
+    console.log(res);
+    
+}
+
+updateUser("shorif10@gmail.com",{firstName:"shorif",lastName:"ahammed"});
 

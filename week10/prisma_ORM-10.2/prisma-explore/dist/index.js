@@ -28,4 +28,20 @@ function insertUser(firstName, lastName, email, password) {
         console.log(response);
     });
 }
-insertUser("ah", "shorif", "shorif10@gmail.com", "4839580");
+// insertUser("ah","shorif","shorif10@gmail.com","4839580")
+function updateUser(email_1, _a) {
+    return __awaiter(this, arguments, void 0, function* (email, { firstName, lastName }) {
+        const res = yield prisma.user.update({
+            where: { email: email },
+            data: {
+                firstName,
+                lastName,
+            },
+            select: {
+                id: true,
+            }
+        });
+        console.log(res);
+    });
+}
+updateUser("shorif10@gmail.com", { firstName: "shorif", lastName: "ahammed" });
