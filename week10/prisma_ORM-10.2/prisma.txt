@@ -1,0 +1,3 @@
+
+npx prisma migrate dev --name 'give name'
+npx prisma generate
