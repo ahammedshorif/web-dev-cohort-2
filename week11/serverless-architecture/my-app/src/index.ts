@@ -13,8 +13,19 @@
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
-		return Response.json({
-			mes: "hi there"
-		})
+		console.log(request.body);
+		console.log(request.headers);
+		if(request.method=='GET'){
+			return Response.json({
+				mes: "you sent a get request"
+			})
+		}
+		else if(request.method=='POST'){
+			return Response.json({
+				mes:"you send a post request"
+			})
+		}
+		
+		
 	},
 } satisfies ExportedHandler<Env>;
