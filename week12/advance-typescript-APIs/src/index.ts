@@ -76,3 +76,20 @@ const user:Users = {
 }
 
 // users.name = "ahammed"  => is not allowed for readonly
+
+
+
+//** Record */
+
+type UserAge = {
+    [key:string]: number;
+}
+
+//using Record
+
+type User1 = Record<string,number>
+
+const users : User1 ={
+    "shorif": 24,
+    "rakib": 23,
+}
