@@ -93,3 +93,20 @@ const users : User1 ={
     "shorif": 24,
     "rakib": 23,
 }
+
+
+
+//** Exclude */
+
+type EventType = "click" | "scroll" | "mousemove";
+
+type ExcludeEvent = Exclude<EventType,"scroll">
+
+const handleEvent = (event:ExcludeEvent)=>{
+    console.log(`handling event: ${event}`);
+    
+}
+
+handleEvent("click")
+handleEvent("mousemove")
+// handleEvent("scroll")    //its wrong because Excludeing scroll
