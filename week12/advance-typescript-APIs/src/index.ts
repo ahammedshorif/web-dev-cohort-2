@@ -33,7 +33,29 @@ interface User{
 
 type UpdateProps = Pick<User, 'name' | 'age' | 'email'>
 
+//it convert int User interface to this
+
+// type UpdateProps = {
+//     name: string;
+//     age: number;
+//     email: string;
+// }
+
 
 function updateUser(updateProps: UpdateProps){
     //hit the database and update the user
 }
+
+
+
+// ** partial **
+
+type UpdatePropsOptional = Partial<UpdateProps>
+
+// its convert into UpdateProps into this 
+
+// type UpdatePropsOptional = {
+//     name?: string | undefined;
+//     age?: number | undefined;
+//     email?: string | undefined;
+// }
