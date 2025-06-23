@@ -59,3 +59,20 @@ type UpdatePropsOptional = Partial<UpdateProps>
 //     age?: number | undefined;
 //     email?: string | undefined;
 // }
+
+
+
+//**readonly */
+
+type Users = {
+    readonly name: string;
+    readonly age: number;
+}
+
+const user:Users = {
+    name:"shorif",
+    age:20
+
+}
+
+// users.name = "ahammed"  => is not allowed for readonly
