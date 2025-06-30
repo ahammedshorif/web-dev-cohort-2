@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "This project uses PostgreSQL running in a Docker container to provide a consistent and isolated database environment.",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/pg": "^8.15.4",
     "pg": "^8.16.3"
   }
 }
