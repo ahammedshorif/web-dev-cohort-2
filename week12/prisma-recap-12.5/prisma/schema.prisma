@@ -21,7 +21,7 @@ model User {
   password  String
   firstName String
   lastName  String
- 
+  todos     Todos[] // reverse relation
 }
 
 model Todos {
@@ -30,5 +30,5 @@ model Todos {
   description String
   done        Boolean
   user_id     Int
-
+  user        User   @relation(fields: [user_id], references: [id])
 }
