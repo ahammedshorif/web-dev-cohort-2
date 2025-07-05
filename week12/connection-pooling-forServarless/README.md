@@ -25,6 +25,7 @@ cd cloudflare-prisma-worker
 
 ```
 npm install
+
 ```
 
 
