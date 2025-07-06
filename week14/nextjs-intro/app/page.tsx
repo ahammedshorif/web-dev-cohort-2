@@ -2,8 +2,8 @@
 
 export default function Home() {
   return (
-    <div>
-        hi this is / route
+    <div className="flex justify-between items-center">
+         this is home page
     </div>
   );
 }

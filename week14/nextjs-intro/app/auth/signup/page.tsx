@@ -1,9 +1,8 @@
 
-
-function signup() {
+function Signup() {
   return (
     <div>signup route</div>
   )
 }
 
-export default signup
+export default Signup

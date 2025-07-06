@@ -13,7 +13,7 @@ export default function Signin(){
                 </div>
                 <div>
                     <h3>Password</h3>
-                    <input type="text" placeholder="348923" className="bg-amber-50 rounded border-2 px-2" />
+                    <input type="password" placeholder="348923" className="bg-amber-50 rounded border-2 px-2" />
                 </div>
 
                 <button className="mt-5 font-bold bg-black text-white px-10 rounded-lg">Sign in</button>
