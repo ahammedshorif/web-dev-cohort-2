@@ -1,4 +1,10 @@
+"use client"
+
 export default function Signin(){
+
+    function handelClick(){
+        console.log('hi there')
+    }
     return <div className="h-screen flex justify-center items-center">
 
         <div className="w-[300px] h-[350px] bg-white text-black rounded-lg ">
@@ -16,7 +22,7 @@ export default function Signin(){
                     <input type="password" placeholder="348923" className="bg-amber-50 rounded border-2 px-2" />
                 </div>
 
-                <button className="mt-5 font-bold bg-black text-white px-10 rounded-lg">Sign in</button>
+                <button onClick={handelClick} className="mt-5 font-bold bg-black text-white px-10 rounded-lg">Sign in</button>
             </div>
         </div>
     
