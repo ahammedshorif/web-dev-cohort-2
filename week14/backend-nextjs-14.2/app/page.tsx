@@ -1,25 +1,20 @@
 import axios from 'axios'
 
 async function  fetchTodo(){
-    const response = await axios.get("http://16.171.40.123:3000/todos");
-     return response.data.todos;
+    const response = await axios.get("http://localhost:3000/api/user");
+     return response.data;
 }
 
 export default async function Home() {
-   const allTodos = await fetchTodo();
-   console.log(allTodos);
+   const alluser = await fetchTodo();
+   console.log(alluser);
    
   return (
     
       <div>
-          <ul  className='flex flex-col justify-center'>{ allTodos.map( todo => (
-            <div key={todo._id} className='w-[50%] h-[200] bg-white m-4 rounded text-black '>
-             <li ></li>
-             <h1>title: {todo.title}</h1>
-             <h2>decription: {todo.description}</h2>
-             <span>{ todo.c}</span>
-             </div>
-          ))}</ul>
+          
+            <h1>name: {alluser.username}</h1>
+            <h1>email: {alluser.email}</h1>
 
 
           <div>hi there</div>
