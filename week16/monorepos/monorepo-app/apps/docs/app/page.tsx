@@ -11,6 +11,7 @@ export default function Home() {
             <Button appName="docs" className={styles.secondary}>
           Open alert
         </Button>
+        <div>This is docs page</div>
       </div>
     );
 }
