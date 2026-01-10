@@ -5,8 +5,9 @@ import './App.css'
 
 function App() {
 
-  const [socket,setSocket] = useState(null)
+  const [socket,setSocket] = useState<any>( null)
   const [latestMessage, setLatestMassage] = useState("")
+  const [message,setMessage]= useState("")
 
   useEffect(()=>{
     const sockets = new WebSocket("ws://localhost:5000");
@@ -18,6 +19,7 @@ function App() {
       sockets.onmessage =(message: any)=>{
         console.log("Received message",message.data);
         setLatestMassage(message.data)
+        setMessage(message.data)
         
       }
     
@@ -32,6 +34,7 @@ function App() {
     <div>
         <h1>Hello WebSocket</h1>
         {latestMessage}
+        <h1>{message}</h1>
     </div>
   )
 }
